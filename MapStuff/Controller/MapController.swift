@@ -326,6 +326,7 @@ extension MapController: CLLocationManagerDelegate {
         locationManager.delegate = self
         
         switch CLLocationManager.authorizationStatus() {
+            
         case .notDetermined:
             print("Location auth status is NOT DETERMINED")
             
@@ -342,7 +343,10 @@ extension MapController: CLLocationManagerDelegate {
         case .authorizedAlways:
             print("Location auth status is AUTHORIZED ALWAYS")
         case .authorizedWhenInUse:
+            fallthrough
+        default:
             print("Location auth status is AUTHORIZED WHEN IN USE")
+        
         }
     }
 }
